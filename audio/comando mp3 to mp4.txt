@@ -1,0 +1,1 @@
+for file in ./*.mp3; do Novo="$(echo "$file" | sed 's:.mp3:.mp4:')"; echo "$Novo"; ffmpeg -i "$file" -strict -2 "$Novo"; done
