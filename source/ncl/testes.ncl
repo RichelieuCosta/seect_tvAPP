@@ -24,15 +24,29 @@
 	<body>
 		
 
-			<port id="porta_1" component="bg"/>
+		<port id="porta_1" component="bg"/>
 		<!-- <port id="porta2" component="barra_superior"/> -->
     
     
 	
-  <media id="bg" src="../../videos/TV_Paraiba_Educa_entrando_no_ar_oficialmente_1080p.mp4" type="video/mp4" descriptor="descVideo"/>
+    <!-- <media id="bg" src="../../videos/TV_Paraiba_Educa_entrando_no_ar_oficialmente_1080p.mp4" type="video/mp4" descriptor="descVideo"/> -->
+    <media id="bg" src="../../videos/TV_Paraiba_Educa_1080p.mp4" type="video/mp4" descriptor="descVideo"/>
+    <media id="bg2" src="../../videos/TV_Paraiba_Educa_1080p.mp4" type="video/mp4" descriptor="descVideo"/>
 		<!-- <media id="bg" src="../../images/common/bg_temporario.jpg" type="image/jpg" descriptor="desc_imgs_z1"/> -->
+
     <media id="barra_superior" src="../../images/common/barra_superior.png" type="image/png" descriptor="desc_imgs_z2"/>
     <media id="barra_lateral_ncl" src="../../images/common/barra_lateral.png" type="image/png" descriptor="desc_imgs_z2_barra_lateral"/>
+
+
+	  <link id="loop_Video" xconnector="conn#onEndStart">
+			<bind role="onEnd" component="bg"/>
+			<bind role="start" component="bg2"/>
+		</link>
+
+  	<link id="loop_Video" xconnector="conn#onEndStart">
+			<bind role="onEnd" component="bg2"/>
+			<bind role="start" component="bg2"/>
+		</link>
 
     <media id="Settings" type="application/x-ginga-settings">
       <property name="service.currentFocus" value=""/>
@@ -106,12 +120,6 @@
 			</link>
 
     
-      <!-- <link id="encerrar_da_barra_lateral" xconnector="conn#onKeySelectionStopStart">
-			<bind role="onSelection" component="lua_barra_lateral">
-				<bindParam name="keyCode" value="ENTER"/>
-			</bind>
-			<bind role="stop" component="lua_barra_lateral"/>
-	  	</link> -->
 		
 	</body>
 </ncl>
